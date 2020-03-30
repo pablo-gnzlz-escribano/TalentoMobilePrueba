@@ -1,0 +1,2 @@
+rootProject.name='Talento Mobile Prueba'
+include ':app'
