@@ -6,8 +6,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cryzastaylo.talentomobileprueba.R
 
-class Adapter(private val list: List<com.cryzastaylo.talentomobileprueba.model.Account>)
-    : RecyclerView.Adapter<Adapter.MovieViewHolder>() {
+class Adapter(private val list: List<com.cryzastaylo.talentomobileprueba.model.Account>) :
+    RecyclerView.Adapter<Adapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -23,18 +23,21 @@ class Adapter(private val list: List<com.cryzastaylo.talentomobileprueba.model.A
 
     class MovieViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         RecyclerView.ViewHolder(inflater.inflate(R.layout.card_view, parent, false)) {
-        private var mTitleView: TextView? = null
-        private var mYearView: TextView? = null
+        private var firstTextView: TextView? = null
+        private var secondTextView: TextView? = null
+        private var thirdTextView: TextView? = null
 
 
         init {
-            mTitleView = itemView.findViewById(R.id.firstFieldCardView)
-            mYearView = itemView.findViewById(R.id.secondFieldCardView)
+            firstTextView = itemView.findViewById(R.id.firstFieldCardView)
+            secondTextView = itemView.findViewById(R.id.secondFieldCardView)
+            thirdTextView = itemView.findViewById(R.id.thirdTextView)
         }
 
         fun bind(account: com.cryzastaylo.talentomobileprueba.model.Account) {
-            mTitleView?.text = account.accountNumber
-            mYearView?.text = account.accountId.toString()
+            firstTextView?.text = account.accountNumber
+            secondTextView?.text = account.accountId.toString()
+            thirdTextView?.text = account.accountBalanceInCents.toString()
         }
     }
 }
